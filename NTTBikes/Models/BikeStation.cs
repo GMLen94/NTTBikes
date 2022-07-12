@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BikesByBDEGLR.Models
+namespace NTTBikes.Models
 {
     public class BikeStation
     {
