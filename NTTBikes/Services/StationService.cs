@@ -6,6 +6,7 @@ namespace NTTBikes.Services
     public class StationService
     {
         public readonly AppDbContext _appDbContext;
+        
         public StationService(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
@@ -19,6 +20,11 @@ namespace NTTBikes.Services
         {
             List<BikeStation> Stations = _appDbContext.BikeStations.ToList();
             return Stations;
+        }
+        public List<Bike> getBikesInStation(Guid id)
+        {
+            BikeStation b= getStationbyId(id);
+            return b.Bikes.ToList();
         }
         public BikeStation getStationbyId(Guid Id)
         {
