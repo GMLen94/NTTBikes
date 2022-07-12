@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using BikesByBDEGLR.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,5 +11,8 @@ namespace NTTBikes.Data
         {
 
         }
+        public virtual DbSet<Bike> Bikes { get; set; }
+        public virtual DbSet<BikeStation> BikeStations { get; set; }
+
     }
 }
