@@ -13,12 +13,11 @@ namespace BikesByBDEGLR.Models
 
         public bool IsWorking { get; set; }
 
+        public bool LockOn { get; set; }
+
         [ForeignKey("BikeStation")]
         public Guid IdStation { get; set; }
         public BikeStation Station { get; set; }
-
-        public bool LockOn { get; set; }
-
 
     }
 }
