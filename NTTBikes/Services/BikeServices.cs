@@ -6,9 +6,11 @@ namespace NTTBikes.Services
     public class BikeServices
     {
         public readonly AppDbContext _appDbContext;
-        public BikeServices(AppDbContext appDbContext)
+        public readonly StationService _stationService;
+        public BikeServices(AppDbContext appDbContext, StationService stationService)
         {
             _appDbContext = appDbContext;
+            _stationService = stationService;
         }
 
         public void addBike(Bike bike)
@@ -39,7 +41,14 @@ namespace NTTBikes.Services
             _appDbContext.Bikes.Update(b);
             _appDbContext.SaveChanges();
         }
-
+        public void PatchStation(Guid IdBike,Guid IdStation)
+        {
+            var bike = findBikebyId(IdBike);
+            var station = _stationService.getStationbyId(IdStation);
+            bike.Station = station;
+            _appDbContext.Update(bike);
+            _appDbContext.SaveChanges();
+        }
         public void DeleteBike(Guid Id)
         {
             Bike b=findBikebyId(Id);
