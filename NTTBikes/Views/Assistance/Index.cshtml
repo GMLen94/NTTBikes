@@ -1,13 +1,32 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
 @{
 }
+@section page_css{
+	<link rel="stylesheet" href="~/css/_assistance.css" asp-append-version="true" />
+}
 
-<form action="/action_page.php">
+@*<form action="/action_page.php">
+	<div class="form-group">
+	<label for="string">Inserisci qui il codice presente sulla bici:</label>
+	<input type="string" class="form-control" id="brokenbike">
+	</div>
+
+
+	<select class="form-select" aria-label="Default select example">
+	<option selected>Seleziona il tipo di problema:</option>
+	<option value="1">Un pezzo della bici si è rotto</option>
+	<option value="2">Non riesco più a connettermi</option>
+	<option value="3">Altro</option>
+	</select>
+
+	<button type="submit" class="btn btn-default">Submit</button>
+	</form>*@
+<div class="login-page">
+	<div class="form">
+		<form asp-controller="Assistance" asp-action="Confirmed" method="post">
   <div class="form-group">
     <label for="string">Inserisci qui il codice presente sulla bici:</label>
-    <input type="string" class="form-control" id="brokenbike">
+    <input type="text" class="form-control" id="Id" name="Id">
   </div>
 
 
@@ -20,4 +39,5 @@
 
       <button type="submit" class="btn btn-default">Submit</button>
 </form>
-
+	</div>
+</div>
