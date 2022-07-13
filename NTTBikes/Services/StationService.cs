@@ -37,6 +37,15 @@ namespace NTTBikes.Services
             _appDbContext.Update(station);
             _appDbContext.SaveChanges();
         }
+
+        public void removeBikefromStation(Guid station_id, Bike bike)
+        {
+            BikeStation station = getStationbyId(station_id);
+            station.Bikes.Remove(bike);
+            _appDbContext.Update(station);
+            _appDbContext.SaveChanges();
+        }
+
         public void deleteStation(Guid Id)
         {
             _appDbContext.BikeStations.Remove(getStationbyId(Id));
