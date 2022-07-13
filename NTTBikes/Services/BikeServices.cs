@@ -18,6 +18,11 @@ namespace NTTBikes.Services
             _appDbContext.Bikes.Add(bike);
             _appDbContext.SaveChanges();
         }
+        public void ChangeStatus(Bike bike)
+        {
+            bike.IsWorking = false;
+            _appDbContext.SaveChanges();
+        }
         public List<Bike> getBikes()
         {
             List<Bike> Bikes = _appDbContext.Bikes.ToList();
