@@ -20,17 +20,16 @@ namespace NTTBikes.Controllers
 
         public IActionResult Confirmed(Guid Id)
         {
-            try
-            {
-                var bike = _bikeService.findBikebyId(Id);
-                _bikeService.ChangeStatus(bike);
-            }
-            catch (Exception ex)
+            var bike = _bikeService.findBikebyId(Id);
+            if (bike == null)
             {
                 ViewData["Error"] = "Il codice bici digitato non esiste, assicurati di aver digitato correttamente";
                 return View("Index");
             }
-
+            else
+            {
+                _bikeService.ChangeStatus(bike);
+            }
             //e poi si dovrebbe chiamare l'assistenza per davvero
             return View();
         }
