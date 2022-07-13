@@ -1,5 +1,4 @@
-﻿using BikesByBDEGLR.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using NTTBikes.Data;
 
 namespace NTTBikes.Controllers
