@@ -36,4 +36,9 @@
             }
       </tbody>
     </table>
+    @if (User.IsInRole("Admin"))
+    {
+        <a class="btn btn-success" asp-controller="Bike" asp-action="CreateBike">Create a new bike?</a>
+    }
+
 </div>
