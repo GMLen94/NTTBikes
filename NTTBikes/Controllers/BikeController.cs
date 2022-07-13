@@ -47,5 +47,11 @@ namespace NTTBikes.Controllers
             _bikeservice.DeleteBike(id);
             return RedirectToAction("Index");
         }
+        [Authorize(Roles = "Admin")]
+        public IActionResult LockUnlock(Guid id)
+        {
+            _bikeservice.PatchLock(id);
+            return RedirectToAction("Index");
+        }
     }
 }

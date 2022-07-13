@@ -20,6 +20,10 @@
                 {
                     <th scope="col">Delete bike?</th>
                 }
+                @if (User.IsInRole("Admin"))
+                {
+                    <th scope="col">Lock bike?</th>
+                }
             </tr>
       </thead>
       <tbody>
@@ -31,6 +35,9 @@
                     <th>@item.LockOn</th>
                     @if (User.IsInRole("Admin")){
                     <th><a type="button" class="btn btn-success" asp-route-id=@item.Id asp-controller="Bike" asp-action="DeletedBike">Delete</a></th>
+                    }
+                    @if (User.IsInRole("Admin")){
+                    <th><a type="button" class="btn btn-success" asp-route-id=@item.Id asp-controller="Bike" asp-action="LockUnlock">Lock/Unlock</a></th>
                     }
                 </tr>
             }

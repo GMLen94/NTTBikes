@@ -32,17 +32,17 @@ namespace NTTBikes.Services
         {
             return _appDbContext.Bikes.FirstOrDefault(b => b.Id == Id);
         }
-        public void PatchLock(Guid Id,bool locks)
+        public void PatchLock(Guid Id)
         {
             Bike b = findBikebyId(Id);
-            b.LockOn = locks;
+            b.LockOn = !b.LockOn;
             _appDbContext.Bikes.Update(b);
             _appDbContext.SaveChanges();
         }
-        public void PatchWorking(Guid Id, bool work)
+        public void PatchWorking(Guid Id)
         {
             Bike b = findBikebyId(Id);
-            b.IsWorking = work;
+            b.IsWorking = !b.IsWorking;
             _appDbContext.Bikes.Update(b);
             _appDbContext.SaveChanges();
         }
