@@ -1,0 +1,39 @@
+﻿@model List<Bike>;
+@{
+}
+ 
+<section class="py-2 text-center container hero">
+                <div class="row py-lg-5">
+                        <div class="col-lg-6 col-md-8 mx-auto">
+                                <h1 class="fw-light">Le Nostre Biciclette</h1>
+                        </div>
+                </div>
+</section>
+<div class="container">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col"><h3>Type</h3></th>
+          <th scope="col"><h3>Working</h3></th>
+          <th scope="col"><h3>Lock</h3></th>
+                @if (User.IsInRole("Admin"))
+                {
+                    <th scope="col">Delete bike?</th>
+                }
+            </tr>
+      </thead>
+      <tbody>
+            @foreach (var item in @Model)
+            {
+                <tr>
+                    <th>@item.Type</th>
+                    <th>@item.IsWorking</th>
+                    <th>@item.LockOn</th>
+                    @if (User.IsInRole("Admin")){
+                    <th><a type="button" class="btn btn-success" asp-route-id=@item.Id asp-controller="Bike" asp-action="DeletedBike">Delete</a></th>
+                    }
+                </tr>
+            }
+      </tbody>
+    </table>
+</div>

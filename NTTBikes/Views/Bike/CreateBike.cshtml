@@ -1,0 +1,44 @@
+﻿@model Bike;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+ 
+@{
+}
+<section class="py-2 text-center container hero pt-5">
+                <div class="row py-lg-4">
+                        <div class="col-lg-6 col-md-8 mx-auto">
+                                <h1 class="fw-light">Aggiungi una bici</h1>
+                        </div>
+                </div>
+</section>
+<div class="container">
+        <form asp-controller="Bike" asp-action="CreatedBike" method="POST">
+                <div>
+                        <label asp-for="Type" class="form-label">Type</label>
+                        <input type="text" class="form-control" asp-for="Type" required>
+                        <span style="color:red" asp-validation-for="Type"></span><br />
+                </div>
+                <div>
+                        <label asp-for="IsWorking" class="form-label">Is it Working?</label><br />
+                        <label asp-for="IsWorking">False</label>
+                        <input type="radio" id="IsWorking" name="IsWorking" value="False"> <br />
+                        <label asp-for="IsWorking">True</label>
+                        <input type="radio" id="IsWorking" name="IsWorking" value="True"> <br />
+
+<br />
+                </div>
+                <div>
+                        <label asp-for="LockOn" class="form-label">Lock On?</label><br />
+                        <label asp-for="LockOn">False</label>
+                        <input type="radio" id="LockOn" name="LockOn" value="False"> <br />
+                        <label asp-for="LockOn">True</label>
+                        <input type="radio" id="LockOn" name="LockOn" value="True"> <br />
+                </div>
+                <div>
+                        <label asp-for="IdStation" class="form-label">Station</label>
+                        <input type="text" class="form-control" asp-for="IdStation">
+                                        <span style="color:red" asp-validation-for="IdStation"></span><br />
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+</div>

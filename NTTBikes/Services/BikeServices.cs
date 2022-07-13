@@ -53,6 +53,7 @@ namespace NTTBikes.Services
         {
             Bike b=findBikebyId(Id);
             _appDbContext.Bikes.Remove(b);
+            _appDbContext.SaveChanges();
         }
 
     }
